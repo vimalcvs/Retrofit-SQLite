@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Retrofit SQLite</string>
+    <string name="no_data_available">No data available</string>
+</resources>
