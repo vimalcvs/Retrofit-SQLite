@@ -1,6 +1,7 @@
 package com.test.myapplication.db;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -10,7 +11,6 @@ import com.test.myapplication.MainActivity;
 import com.test.myapplication.model.ModelMain;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -23,13 +23,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_IMG = "img";
     private static final String KEY_DESCRIPTION = "description";
 
-    public DatabaseHandler(MainActivity mainActivity) {
-        super(mainActivity, DATABASE_NAME, null, DATABASE_VERSION);
+    public DatabaseHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public DatabaseHandler(ActivityDetail activityDetail) {
-        super(activityDetail, DATABASE_NAME, null, DATABASE_VERSION);
-    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -46,7 +43,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public void insertDetails(List<ModelMain> modelMainList) {
+    public void insertDetails(ArrayList<ModelMain> modelMainList) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cValues = new ContentValues();
         for (int i = 0; i < modelMainList.size(); i++) {
@@ -91,7 +88,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public List<ModelMain> readData(int ids) {
+    public ArrayList<ModelMain> readData(int ids) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from hotels where id=" + ids + "", null);
         ArrayList<ModelMain> modelMainArrayList = new ArrayList<>();

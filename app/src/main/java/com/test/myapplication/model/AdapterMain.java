@@ -15,14 +15,14 @@ import com.squareup.picasso.Picasso;
 import com.test.myapplication.ActivityDetail;
 import com.test.myapplication.databinding.ItemListBinding;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
-    private final List<ModelMain> list;
-    Context context;
+    private final ArrayList<ModelMain> list;
+    private final Context context;
 
-    public AdapterMain(List<ModelMain> list, Context context) {
+    public AdapterMain(ArrayList<ModelMain> list, Context context) {
         this.list = list;
         this.context = context;
     }

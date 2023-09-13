@@ -13,7 +13,7 @@ import com.test.myapplication.databinding.ActivityDetailBinding;
 import com.test.myapplication.db.DatabaseHandler;
 import com.test.myapplication.model.ModelMain;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ActivityDetail extends AppCompatActivity {
 
@@ -28,10 +28,10 @@ public class ActivityDetail extends AppCompatActivity {
         binding.toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         ModelMain modelMain = (ModelMain) getIntent().getSerializableExtra(EXTRA_KEY);
-        dbHandler = new DatabaseHandler(this);
+        dbHandler = new DatabaseHandler(ActivityDetail.this);
 
         if (modelMain != null) {
-            List<ModelMain> list = dbHandler.readData(modelMain.id);
+            ArrayList<ModelMain> list = dbHandler.readData(modelMain.id);
             if (!list.isEmpty()) {
                 binding.toolbar.setTitle(modelMain.name);
                 binding.tvDetails.setText(Html.fromHtml(list.get(0).description));

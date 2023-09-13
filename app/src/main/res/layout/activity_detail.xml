@@ -14,10 +14,10 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            app:titleCentered="true"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_back" />
+            app:navigationIcon="@drawable/ic_back"
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -35,10 +35,10 @@
                 android:id="@+id/tv_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:justificationMode="inter_word"
                 android:letterSpacing="0.2"
                 android:lineSpacingExtra="2dp"
-                android:justificationMode="inter_word"
+                android:padding="10dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
                 tools:targetApi="o" />
