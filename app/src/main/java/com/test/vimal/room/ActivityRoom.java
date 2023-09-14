@@ -1,5 +1,6 @@
 package com.test.vimal.room;
 
+import static com.test.vimal.service.Constant.DATABASE_NAME;
 import static com.test.vimal.service.Constant.SUCCESS;
 
 import android.content.Intent;
@@ -45,13 +46,12 @@ public class ActivityRoom extends AppCompatActivity {
 
         binding.toolbar.setNavigationOnClickListener(v -> startActivity(new Intent(this, ActivityMain.class)));
 
+        roomDB = Room.databaseBuilder(this, RoomDB.class, DATABASE_NAME).build();
 
-        roomDB = Room.databaseBuilder(this, RoomDB.class, "my-database").build();
 
         binding.rvRecycler.setLayoutManager(new StaggeredGridLayoutManager(3, 1));
         adapter = new AdapterRoom(new ArrayList<>(), this);
         binding.rvRecycler.setAdapter(adapter);
-
 
         roomDB.myDao().getAllData().observe(this, (Observer<List<ModelRoom>>) myEntities -> {
             if (myEntities.isEmpty()) {
@@ -99,7 +99,6 @@ public class ActivityRoom extends AppCompatActivity {
                 bindings.ivError.setImageResource(R.drawable.icon_data_net);
                 bindings.tvError.setText(R.string.no_internet_connection);
             }
-
         });
     }
 
@@ -107,7 +106,6 @@ public class ActivityRoom extends AppCompatActivity {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> roomDB.myDao().insertData(data));
     }
-
 
     @Override
     protected void onDestroy() {

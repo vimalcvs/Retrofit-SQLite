@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity(tableName = "model_room")
-public class ModelRoom  implements Serializable {
+public class ModelRoom implements Serializable {
 
     @PrimaryKey
     @NonNull

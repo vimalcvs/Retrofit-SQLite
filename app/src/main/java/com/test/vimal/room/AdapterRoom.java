@@ -3,6 +3,7 @@ package com.test.vimal.room;
 import static com.test.vimal.service.Constant.EXTRA_KEY;
 import static com.test.vimal.service.Constant.IMAGE_PATH;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.test.vimal.main.ActivityMainDetail;
 import java.io.Serializable;
 import java.util.List;
 
+@SuppressLint("NotifyDataSetChanged")
 public class AdapterRoom extends RecyclerView.Adapter<AdapterRoom.ViewHolder> {
 
     private final Context context;
@@ -58,6 +60,7 @@ public class AdapterRoom extends RecyclerView.Adapter<AdapterRoom.ViewHolder> {
     public int getItemCount() {
         return list.size();
     }
+
 
     public void setData(List<ModelRoom> modelMains) {
         this.list = modelMains;

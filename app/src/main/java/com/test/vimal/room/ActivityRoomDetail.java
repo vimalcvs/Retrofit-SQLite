@@ -1,6 +1,7 @@
 package com.test.vimal.room;
 
 
+import static com.test.vimal.service.Constant.DATABASE_NAME;
 import static com.test.vimal.service.Constant.EXTRA_KEY;
 
 import android.os.Bundle;
@@ -40,7 +41,7 @@ public class ActivityRoomDetail extends AppCompatActivity {
             return;
         }
 
-        RoomDB roomDB = Room.databaseBuilder(this, RoomDB.class, "my-database").build();
+        RoomDB roomDB = Room.databaseBuilder(this, RoomDB.class, DATABASE_NAME).build();
 
         LiveData<List<ModelRoom>> modelRoomData = roomDB.myDao().getDataById(roomId);
         modelRoomData.observe(this, modelRooms -> {
