@@ -1,4 +1,4 @@
-package com.test.myapplication.db;
+package com.test.vimal.main;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,17 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.test.myapplication.ActivityDetail;
-import com.test.myapplication.MainActivity;
-import com.test.myapplication.model.ModelMain;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "hotelmanager";
-    private static final String TABLE_CONTACTS = "hotels";
+    private static final String DATABASE_NAME = "dbmain";
+    private static final String TABLE_CONTACTS = "main";
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -43,7 +40,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public void insertDetails(ArrayList<ModelMain> modelMainList) {
+    public void insertDetails(List<ModelMain> modelMainList) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cValues = new ContentValues();
         for (int i = 0; i < modelMainList.size(); i++) {
@@ -69,10 +66,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<ModelMain> listContacts() {
+    public List<ModelMain> listContacts() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CONTACTS, null);
-        ArrayList<ModelMain> storedContacts = new ArrayList<>();
+        List<ModelMain> storedContacts = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
                 int id = Integer.parseInt(cursor.getString(0));
@@ -88,10 +85,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<ModelMain> readData(int ids) {
+    public List<ModelMain> readData(int ids) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from hotels where id=" + ids + "", null);
-        ArrayList<ModelMain> modelMainArrayList = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CONTACTS + " WHERE id=" + ids, null);
+        List<ModelMain> modelMainArrayList = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
                 int id = Integer.parseInt(cursor.getString(0));

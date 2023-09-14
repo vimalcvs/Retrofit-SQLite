@@ -1,6 +1,6 @@
-package com.test.myapplication.service;
+package com.test.vimal.service;
 
-import static com.test.myapplication.model.Constant.BASE_URL;
+import static com.test.vimal.service.Constant.BASE_URL;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

@@ -1,7 +1,7 @@
-package com.test.myapplication.model;
+package com.test.vimal.main;
 
-import static com.test.myapplication.model.Constant.EXTRA_KEY;
-import static com.test.myapplication.model.Constant.IMAGE_PATH;
+import static com.test.vimal.service.Constant.EXTRA_KEY;
+import static com.test.vimal.service.Constant.IMAGE_PATH;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,17 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.test.myapplication.ActivityDetail;
-import com.test.myapplication.databinding.ItemListBinding;
+import com.test.vimal.databinding.ItemListBinding;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
-    private final ArrayList<ModelMain> list;
     private final Context context;
+    private final List<ModelMain> list;
 
-    public AdapterMain(ArrayList<ModelMain> list, Context context) {
+    public AdapterMain(List<ModelMain> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -44,9 +44,9 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
         holder.binding.cvCard.setOnClickListener(v -> {
             try {
-                Intent intent = new Intent(context, ActivityDetail.class);
+                Intent intent = new Intent(context, ActivityMainDetail.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra(EXTRA_KEY, modelMain);
+                intent.putExtra(EXTRA_KEY, (Serializable) modelMain);
                 context.startActivity(intent);
             } catch (Exception e) {
                 e.printStackTrace();

@@ -1,7 +1,9 @@
-package com.test.myapplication;
+package com.test.vimal.main;
 
-import static com.test.myapplication.model.Constant.SUCCESS;
+import static com.test.vimal.service.Constant.EXTRA_KEY;
+import static com.test.vimal.service.Constant.SUCCESS;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,25 +11,25 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.test.myapplication.databinding.ActivityMainBinding;
-import com.test.myapplication.databinding.LayoutErrorBinding;
-import com.test.myapplication.db.DatabaseHandler;
-import com.test.myapplication.model.AdapterMain;
-import com.test.myapplication.model.CallbackMain;
-import com.test.myapplication.model.ModelMain;
-import com.test.myapplication.service.ApiInterface;
-import com.test.myapplication.service.RestAdapter;
+import com.test.vimal.R;
+import com.test.vimal.databinding.ActivityMainBinding;
+import com.test.vimal.databinding.LayoutErrorBinding;
+import com.test.vimal.room.ActivityRoom;
+import com.test.vimal.service.ApiInterface;
+import com.test.vimal.service.RestAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity {
 
     private Call<CallbackMain> call;
     private DatabaseHandler databaseHandler;
-    private ArrayList<ModelMain> modelMainList;
+    private List<ModelMain> modelMainList;
     private ActivityMainBinding binding;
     private LayoutErrorBinding bindings;
 
@@ -38,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         bindings = binding.ivInclude;
 
-        databaseHandler = new DatabaseHandler(MainActivity.this);
+        binding.toolbar.setNavigationOnClickListener(v -> startActivity(new Intent(this, ActivityRoom.class)));
+
+        databaseHandler = new DatabaseHandler(ActivityMain.this);
         modelMainList = new ArrayList<>();
 
         loadData();

@@ -1,4 +1,4 @@
-package com.test.myapplication.model;
+package com.test.vimal.service;
 
 public class Constant {
     public static final String SUCCESS = "0";

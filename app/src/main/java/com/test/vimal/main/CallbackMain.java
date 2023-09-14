@@ -1,4 +1,6 @@
-package com.test.myapplication.model;
+package com.test.vimal.main;
+
+import com.test.vimal.main.ModelMain;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
-package com.test.myapplication;
+package com.test.vimal.main;
 
 
-import static com.test.myapplication.model.Constant.EXTRA_KEY;
+import static com.test.vimal.service.Constant.EXTRA_KEY;
 
 import android.os.Bundle;
 import android.text.Html;
@@ -9,13 +9,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.test.myapplication.databinding.ActivityDetailBinding;
-import com.test.myapplication.db.DatabaseHandler;
-import com.test.myapplication.model.ModelMain;
+import com.test.vimal.R;
+import com.test.vimal.databinding.ActivityDetailBinding;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class ActivityDetail extends AppCompatActivity {
+public class ActivityMainDetail extends AppCompatActivity {
 
     public DatabaseHandler dbHandler;
 
@@ -28,10 +27,10 @@ public class ActivityDetail extends AppCompatActivity {
         binding.toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         ModelMain modelMain = (ModelMain) getIntent().getSerializableExtra(EXTRA_KEY);
-        dbHandler = new DatabaseHandler(ActivityDetail.this);
+        dbHandler = new DatabaseHandler(ActivityMainDetail.this);
 
         if (modelMain != null) {
-            ArrayList<ModelMain> list = dbHandler.readData(modelMain.id);
+           List<ModelMain> list = dbHandler.readData(modelMain.id);
             if (!list.isEmpty()) {
                 binding.toolbar.setTitle(modelMain.name);
                 binding.tvDetails.setText(Html.fromHtml(list.get(0).description));
@@ -42,4 +41,5 @@ public class ActivityDetail extends AppCompatActivity {
             Toast.makeText(this, "No data available", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

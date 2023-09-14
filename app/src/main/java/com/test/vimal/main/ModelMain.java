@@ -1,7 +1,6 @@
-package com.test.myapplication.model;
+package com.test.vimal.main;
 
 import java.io.Serializable;
-
 
 public class ModelMain implements Serializable {
 
