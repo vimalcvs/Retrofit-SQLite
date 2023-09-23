@@ -51,5 +51,7 @@ public class ActivityRoomDetail extends AppCompatActivity {
                 binding.tvDetails.setText(R.string.no_data_available);
             }
         });
+
+
     }
 }

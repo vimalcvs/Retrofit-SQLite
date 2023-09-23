@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.test.vimal.databinding.ItemListBinding;
-import com.test.vimal.main.ActivityMainDetail;
 
-import java.io.Serializable;
 import java.util.List;
 
 @SuppressLint("NotifyDataSetChanged")

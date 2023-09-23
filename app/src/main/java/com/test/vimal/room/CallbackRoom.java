@@ -1,7 +1,5 @@
 package com.test.vimal.room;
 
-import com.test.vimal.room.ModelRoom;
-
 import java.util.ArrayList;
 import java.util.List;
 

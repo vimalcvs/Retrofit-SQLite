@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.test.vimal.databinding.ItemListBinding;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
@@ -46,7 +45,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
             try {
                 Intent intent = new Intent(context, ActivityMainDetail.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra(EXTRA_KEY, (Serializable) modelMain);
+                intent.putExtra(EXTRA_KEY, modelMain);
                 context.startActivity(intent);
             } catch (Exception e) {
                 e.printStackTrace();

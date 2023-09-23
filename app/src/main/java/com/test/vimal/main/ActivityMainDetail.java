@@ -30,7 +30,7 @@ public class ActivityMainDetail extends AppCompatActivity {
         dbHandler = new DatabaseHandler(ActivityMainDetail.this);
 
         if (modelMain != null) {
-           List<ModelMain> list = dbHandler.readData(modelMain.id);
+            List<ModelMain> list = dbHandler.readData(modelMain.id);
             if (!list.isEmpty()) {
                 binding.toolbar.setTitle(modelMain.name);
                 binding.tvDetails.setText(Html.fromHtml(list.get(0).description));

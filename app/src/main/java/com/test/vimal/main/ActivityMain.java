@@ -1,6 +1,5 @@
 package com.test.vimal.main;
 
-import static com.test.vimal.service.Constant.EXTRA_KEY;
 import static com.test.vimal.service.Constant.SUCCESS;
 
 import android.content.Intent;
@@ -18,7 +17,6 @@ import com.test.vimal.room.ActivityRoom;
 import com.test.vimal.service.ApiInterface;
 import com.test.vimal.service.RestAdapter;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

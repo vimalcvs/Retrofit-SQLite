@@ -1,2 +1,0 @@
-# Retrofit SQLite
- Retrofit SQLite

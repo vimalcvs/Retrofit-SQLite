@@ -15,8 +15,6 @@ public abstract class RoomDB extends RoomDatabase {
 
     private static RoomDB instance;
 
-    public abstract RoomDao myDao();
-
     public static synchronized void getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(), RoomDB.class, DATABASE_NAME)
@@ -24,5 +22,7 @@ public abstract class RoomDB extends RoomDatabase {
                     .build();
         }
     }
+
+    public abstract RoomDao myDao();
 
 }

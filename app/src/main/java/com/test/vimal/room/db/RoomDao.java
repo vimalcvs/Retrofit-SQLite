@@ -19,7 +19,6 @@ public interface RoomDao {
     @Query("SELECT * FROM model_room WHERE id = :roomId")
     LiveData<List<ModelRoom>> getDataById(String roomId);
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertData(List<ModelRoom> data);
 

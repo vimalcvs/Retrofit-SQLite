@@ -9,7 +9,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.room.Room;
 
@@ -53,7 +52,8 @@ public class ActivityRoom extends AppCompatActivity {
         adapter = new AdapterRoom(new ArrayList<>(), this);
         binding.rvRecycler.setAdapter(adapter);
 
-        roomDB.myDao().getAllData().observe(this, (Observer<List<ModelRoom>>) myEntities -> {
+
+        roomDB.myDao().getAllData().observe(this, myEntities -> {
             if (myEntities.isEmpty()) {
                 apiResponse();
             } else {
@@ -62,6 +62,7 @@ public class ActivityRoom extends AppCompatActivity {
         });
 
         binding.srSwipe.setOnRefreshListener(this::apiResponse);
+
         bindings.btError.setOnClickListener(v -> {
             apiResponse();
             bindings.llError.setVisibility(View.GONE);
